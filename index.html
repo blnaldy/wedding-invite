@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Undangan Digital Ichas & Diva — 30 November 2024, Jakarta. Dengan animasi bunga jatuh dan amplop digital QRIS." />
+  <meta name="author" content="Ichas & Diva" />
+  <meta property="og:title" content="Undangan Pernikahan Ichas & Diva" />
+  <meta property="og:description" content="Dengan rahmat Allah SWT, kami mengundang Bapak/Ibu/Saudara(i) dalam acara pernikahan kami." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/5a4b8d/f8f4ff?text=Ichas+%26+Diva" />
+  <meta property="og:url" content="https://example.com/ichas-diva" />
+
+  <title>Ichas & Diva | Undangan Digital Terbaik</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animate-petals.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico">
+</head>
+<body>
+
+  <!-- GATE / COVER -->
+  <div id="gate">
+    <h1>Ichas & Diva</h1>
+    <p>30 November 2024 · Jakarta</p>
+    <button id="open-btn">Buka Undangan</button>
+  </div>
+
+  <!-- MUSIC TOGGLE -->
+  <div id="music-toggle">🔊</div>
+
+  <!-- BACKGROUND AUDIO -->
+  <audio id="bgm" preload="auto" loop>
+    <source src="my-love-westlife.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- NAVBAR HAMBURGER UNIK -->
+  <nav>
+    <div class="hamburger" id="hamburger">
+      <div class="bar"></div>
+    </div>
+    <div class="nav-menu" id="nav-menu">
+      <ul>
+        <li><a href="#hero" onclick="closeMenu()">Beranda</a></li>
+        <li><a href="#couple" onclick="closeMenu()">Mempelai</a></li>
+        <li><a href="#timeline" onclick="closeMenu()">Acara</a></li>
+        <li><a href="#location" onclick="closeMenu()">Lokasi</a></li>
+        <li><a href="#qris" onclick="closeMenu()">Amplop</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="content">
+      <h1>Ichas & Diva</h1>
+      <p>30 November 2024 · Jakarta</p>
+    </div>
+  </section>
+
+  <!-- ARABIC -->
+  <section id="arabic">
+    <div class="arabic-text" data-aos="fade-up">
+      بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ<br>
+      وَالسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ<br>
+      رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا
+    </div>
+    <p class="translation" data-aos="fade-up">
+      Dengan menyebut nama Allah Yang Maha Pengasih, Maha Penyayang.<br>
+      Salam sejahtera untuk Anda, semoga rahmat dan berkah Allah menyertai.<br>
+      Ya Tuhan kami, anugerahkanlah kepada kami pasangan dan keturunan sebagai penyejuk hati, dan jadikanlah kami pemimpin bagi orang-orang yang bertakwa.
+    </p>
+    <p class="arabic-text" data-aos="zoom-in">اللَّهُمَّ بَارِكْ لَهُمَا وَبَارِكْ عَلَيْهِمَا وَاجْمَعْ بَيْنَهُمَا فِي خَيْرٍ</p>
+  </section>
+
+  <!-- COUPLE -->
+  <section id="couple">
+    <h2 data-aos="fade-up">Mempelai</h2>
+    <div class="couple-container">
+      <div class="couple-card" data-aos="zoom-in">
+        <img src="https://source.unsplash.com/random/300x300/?man,groom" alt="Ichas" class="profile-img">
+        <h3>Ichas Pratama</h3>
+        <p>Putra dari Bapak Agus & Ibu Siti</p>
+        <div class="parents">"Pribadi yang sabar, penyayang, dan selalu menepati janji."</div>
+      </div>
+      <div class="couple-card" data-aos="zoom-in">
+        <img src="https://source.unsplash.com/random/300x300/?woman,bride" alt="Diva" class="profile-img">
+        <h3>Diva Ayu</h3>
+        <p>Putri dari Bapak Budi & Ibu Rina</p>
+        <div class="parents">"Sosok lembut, penuh kasih, dan membawa kedamaian."</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline">
+    <h2 data-aos="fade-up">Rangkaian Acara</h2>
+    <div class="event" data-aos="fade-up">
+      <h3>01. Akad Nikah</h3>
+      <p>Sabtu, 30 November 2024<br>08.00 – 10.00 WIB<br>Hotel Grand Sahid, Jakarta</p>
+    </div>
+    <div class="event" data-aos="fade-up">
+      <h3>02. Resepsi Siang</h3>
+      <p>Minggu, 1 Desember 2024<br>11.00 – 14.00 WIB</p>
+    </div>
+    <div class="event" data-aos="fade-up">
+      <h3>03. Resepsi Malam</h3>
+      <p>Minggu, 1 Desember 2024<br>19.00 – 22.00 WIB</p>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section id="location">
+    <h2 data-aos="fade-up">Lokasi</h2>
+    <div class="map-container" data-aos="zoom-in">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.218212336255!2d106.82513397484025!3d-6.227572993741899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3b7b0b1b1c1%3A0x1b1b1b1b1b1b1b1b!2sHotel%20Grand%20Sahid%20Jaya!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+        allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+    <a href="https://maps.google.com/?q=Hotel+Grand+Sahid+Jaya+Jakarta" target="_blank">
+      <button class="map-btn">Buka di Google Maps</button>
+    </a>
+  </section>
+
+  <!-- AMPLOP DIGITAL (QRIS) -->
+  <section id="qris">
+    <h2 data-aos="fade-up">Amplop Digital</h2>
+    <p data-aos="fade-up">Anda dapat memberikan tanda kasih melalui transfer digital.</p>
+    
+    <div class="envelope" id="envelope"></div>
+    
+    <div id="qris-container" style="display: none;">
+      <div class="qris-box">
+        <img src="images/qris-code.png" alt="QRIS Code" class="qris-image">
+        <div class="qris-label">Scan untuk donasi</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section id="closing">
+    <h2 data-aos="fade-up">Terima Kasih</h2>
+    <p data-aos="fade-up">Kehadiran dan doa Anda adalah anugerah terbesar dalam perjalanan cinta kami. Semoga cinta kami menjadi sakinah, mawaddah, wa rahmah.</p>
+  </section>
+
+  <!-- PETAL ANIMATION CANVAS -->
+  <canvas id="petalCanvas" style="position: fixed; top: 0; left: 0; z-index: -1; pointer-events: none;"></canvas>
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/animate-petals.js"></script>
+</body>
+</html>
