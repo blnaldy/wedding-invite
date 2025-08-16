@@ -1,0 +1,34 @@
+/* Petal Animation */
+.petal {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: url('https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit@1.0.0/assets/img/petal.png') no-repeat center/contain;
+  opacity: 0.8;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+  transform-origin: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Fade in on load */
+.petal {
+  animation: fall 8s linear forwards;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
