@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Undangan Digital Ichas & Diva — 30 November 2024, Jakarta. Dengan animasi bunga jatuh dan amplop digital QRIS." />
+  <meta name="description" content="Undangan Digital Pernikahan Ichas Asha Syahroni & Diva Tiara — 31 Agustus 2025, Jakarta" />
   <meta name="author" content="Ichas & Diva" />
   <meta property="og:title" content="Undangan Pernikahan Ichas & Diva" />
   <meta property="og:description" content="Dengan rahmat Allah SWT, kami mengundang Bapak/Ibu/Saudara(i) dalam acara pernikahan kami." />
-  <meta property="og:image" content="https://via.placeholder.com/1200x630/5a4b8d/f8f4ff?text=Ichas+%26+Diva" />
+  <meta property="og:image" content="images/ichas-diva-cover.jpg" />
   <meta property="og:url" content="https://example.com/ichas-diva" />
+  <meta property="og:type" content="website" />
 
-  <title>Ichas & Diva | Undangan Digital Terbaik</title>
+  <title>Ichas & Diva | Undangan Digital</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
@@ -19,31 +20,34 @@
   <!-- AOS Animation -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/animate-petals.css">
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/7b12bcc245.js" crossorigin="anonymous"></script>
 
   <!-- Favicon -->
-  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- GATE / COVER -->
+  <!-- 🚪 GATE / COVER -->
   <div id="gate">
-    <h1>Ichas & Diva</h1>
-    <p>30 November 2024 · Jakarta</p>
+    <div class="logo">I&D</div>
+    <h1>Ichas Asha<br>&<br>Diva Tiara</h1>
+    <p>31 Agustus 2025 · Jakarta</p>
     <button id="open-btn">Buka Undangan</button>
   </div>
 
-  <!-- MUSIC TOGGLE -->
+  <!-- 🔊 MUSIC TOGGLE -->
   <div id="music-toggle">🔊</div>
 
-  <!-- BACKGROUND AUDIO -->
+  <!-- 🎵 BACKGROUND AUDIO -->
   <audio id="bgm" preload="auto" loop>
     <source src="my-love-westlife.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- NAVBAR HAMBURGER UNIK -->
+  <!-- 🌐 NAVBAR -->
   <nav>
     <div class="hamburger" id="hamburger">
       <div class="bar"></div>
@@ -52,137 +56,191 @@
       <ul>
         <li><a href="#hero" onclick="closeMenu()">Beranda</a></li>
         <li><a href="#couple" onclick="closeMenu()">Mempelai</a></li>
+        <li><a href="#gallery" onclick="closeMenu()">Galeri</a></li>
         <li><a href="#timeline" onclick="closeMenu()">Acara</a></li>
         <li><a href="#location" onclick="closeMenu()">Lokasi</a></li>
-        <li><a href="#qris" onclick="closeMenu()">Amplop</a></li>
+        <li><a href="#qris" onclick="scrollToQris(event)">Amplop</a></li>
+        <li><a href="#" onclick="toggleDarkMode()">Dark Mode</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- 🌸 PETAL ANIMATION -->
+  <canvas id="petalCanvas"></canvas>
+
+  <!-- 🏠 BERANDA -->
   <section id="hero">
     <div class="content">
-      <h1>Ichas & Diva</h1>
-      <p>30 November 2024 · Jakarta</p>
+      <h1>Ichas Asha Syahroni<br>&<br>Diva Tiara</h1>
+      <p>31 Agustus 2025 · Jakarta</p>
     </div>
   </section>
 
-  <!-- ARABIC -->
+  <!-- 🕌 PEMBUKA (ARAB) -->
   <section id="arabic">
-    <div class="arabic-text" data-aos="fade-up">
-      بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ<br>
-      وَالسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ<br>
-      رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا
+    <div class="container">
+      <div class="arabic-text" data-aos="fade-up">
+        بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ<br>
+        وَالسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ<br>
+        رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا
+      </div>
+      <p class="translation" data-aos="fade-up">
+        Dengan menyebut nama Allah Yang Maha Pengasih, Maha Penyayang.<br>
+        Salam sejahtera untuk Anda, semoga rahmat dan berkah Allah menyertai.<br>
+        Ya Tuhan kami, anugerahkanlah kepada kami pasangan dan keturunan sebagai penyejuk hati, dan jadikanlah kami pemimpin bagi orang-orang yang bertakwa.
+      </p>
+      <p class="arabic-text" data-aos="zoom-in">اللَّهُمَّ بَارِكْ لَهُمَا وَبَارِكْ عَلَيْهِمَا وَاجْمَعْ بَيْنَهُمَا فِي خَيْرٍ</p>
     </div>
-    <p class="translation" data-aos="fade-up">
-      Dengan menyebut nama Allah Yang Maha Pengasih, Maha Penyayang.<br>
-      Salam sejahtera untuk Anda, semoga rahmat dan berkah Allah menyertai.<br>
-      Ya Tuhan kami, anugerahkanlah kepada kami pasangan dan keturunan sebagai penyejuk hati, dan jadikanlah kami pemimpin bagi orang-orang yang bertakwa.
-    </p>
-    <p class="arabic-text" data-aos="zoom-in">اللَّهُمَّ بَارِكْ لَهُمَا وَبَارِكْ عَلَيْهِمَا وَاجْمَعْ بَيْنَهُمَا فِي خَيْرٍ</p>
   </section>
 
-  <!-- COUPLE -->
+  <!-- 👫 MEMPELAI -->
   <section id="couple">
-    <h2 data-aos="fade-up">Mempelai</h2>
-    <div class="couple-container">
-      <div class="couple-card" data-aos="zoom-in">
-        <img src="https://source.unsplash.com/random/300x300/?man,groom" alt="Ichas" class="profile-img">
-        <h3>Ichas Pratama</h3>
-        <p>Putra dari Bapak Agus & Ibu Siti</p>
-        <div class="parents">"Pribadi yang sabar, penyayang, dan selalu menepati janji."</div>
-      </div>
-      <div class="couple-card" data-aos="zoom-in">
-        <img src="https://source.unsplash.com/random/300x300/?woman,bride" alt="Diva" class="profile-img">
-        <h3>Diva Ayu</h3>
-        <p>Putri dari Bapak Budi & Ibu Rina</p>
-        <div class="parents">"Sosok lembut, penuh kasih, dan membawa kedamaian."</div>
+    <div class="container">
+      <h2 data-aos="fade-up">Mempelai</h2>
+      <div class="couple-container">
+        <div class="couple-card" data-aos="zoom-in">
+          <img src="images/ichas.jpg" alt="Ichas Asha Syahroni" class="profile-img">
+          <h3>Ichas Asha Syahroni</h3>
+          <p class="text">Putra dari Bapak Fulan & Ibu Fulanah</p>
+          <div class="parents">
+            "Anak yang tumbuh dengan nilai kejujuran, tanggung jawab, dan cinta yang tulus."
+          </div>
+        </div>
+        <div class="couple-card" data-aos="zoom-in">
+          <img src="images/diva.jpg" alt="Diva Tiara" class="profile-img">
+          <h3>Diva Tiara</h3>
+          <p class="text">Putri dari Bapak Fulan & Ibu Fulanah</p>
+          <div class="parents">
+            "Sosok yang lembut, penuh kasih, dan selalu membawa ketenangan di mana pun berada."
+          </div>
+        </div>
       </div>
     </div>
   </section>
- <!-- GALLERY -->
+
+<!-- GALLERY -->
 <section id="gallery">
   <div class="container">
     <h2 data-aos="fade-up">Galeri Kenangan</h2>
-    <p class="text" data-aos="fade-up" style="text-align: center; max-width: 600px; margin: 1rem auto;">
-      Beberapa momen indah yang kami lalui bersama, dari pertemuan pertama hingga hari-hari penuh tawa dan doa.
-    </p>
+    <p class="text" data-aos="fade-up">Beberapa momen indah yang kami lalui bersama.</p>
 
-    <!-- Gallery Scroll Container -->
-    <div class="gallery-scroll-container" data-aos="fade-up">
-      <div class="gallery-scroll">
-        <img src="https://source.unsplash.com/random/400x400/?couple,1" alt="Foto 1" class="gallery-item">
-        <img src="https://source.unsplash.com/random/400x400/?couple,2" alt="Foto 2" class="gallery-item">
-        <img src="https://source.unsplash.com/random/400x400/?couple,3" alt="Foto 3" class="gallery-item">
-        <img src="https://source.unsplash.com/random/400x400/?couple,4" alt="Foto 4" class="gallery-item">
-        <img src="https://source.unsplash.com/random/400x400/?couple,5" alt="Foto 5" class="gallery-item">
-        <img src="https://source.unsplash.com/random/400x400/?couple,6" alt="Foto 6" class="gallery-item">
-        <img src="https://source.unsplash.com/random/400x400/?couple,7" alt="Foto 7" class="gallery-item">
-        <img src="https://source.unsplash.com/random/400x400/?couple,8" alt="Foto 8" class="gallery-item">
-        <button class="gallery-btn left" onclick="scrollGallery('left')">&#10094;</button>
-        <button class="gallery-btn right" onclick="scrollGallery('right')">&#10095;</button>
+    <!-- Gallery Carousel -->
+    <div class="gallery-container">
+      <button class="gallery-btn left" onclick="scrollGallery('left')">&#10094;</button>
+      <div class="gallery-slider">
+        <img src="images/gallery-1.jpg" alt="Foto 1" class="gallery-item">
+        <img src="images/gallery-2.jpg" alt="Foto 2" class="gallery-item">
+        <img src="images/gallery-3.jpg" alt="Foto 3" class="gallery-item">
+        <img src="images/gallery-4.jpg" alt="Foto 4" class="gallery-item">
+        <img src="images/gallery-5.jpg" alt="Foto 5" class="gallery-item">
+        <img src="images/gallery-6.jpg" alt="Foto 6" class="gallery-item">
+        <img src="images/gallery-7.jpg" alt="Foto 7" class="gallery-item">
+        <img src="images/gallery-8.jpg" alt="Foto 8" class="gallery-item">
       </div>
+      <button class="gallery-btn right" onclick="scrollGallery('right')">&#10095;</button>
     </div>
   </div>
 </section>
-  <!-- TIMELINE -->
+
+  <!-- 📅 ACARA -->
   <section id="timeline">
-    <h2 data-aos="fade-up">Rangkaian Acara</h2>
-    <div class="event" data-aos="fade-up">
-      <h3>01. Akad Nikah</h3>
-      <p>Sabtu, 30 November 2024<br>08.00 – 10.00 WIB<br>Hotel Grand Sahid, Jakarta</p>
-    </div>
-    <div class="event" data-aos="fade-up">
-      <h3>02. Resepsi Siang</h3>
-      <p>Minggu, 1 Desember 2024<br>11.00 – 14.00 WIB</p>
-    </div>
-    <div class="event" data-aos="fade-up">
-      <h3>03. Resepsi Malam</h3>
-      <p>Minggu, 1 Desember 2024<br>19.00 – 22.00 WIB</p>
-    </div>
-  </section>
-
-  <!-- LOCATION -->
-  <section id="location">
-    <h2 data-aos="fade-up">Lokasi</h2>
-    <div class="map-container" data-aos="zoom-in">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.218212336255!2d106.82513397484025!3d-6.227572993741899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3b7b0b1b1c1%3A0x1b1b1b1b1b1b1b1b!2sHotel%20Grand%20Sahid%20Jaya!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
-        allowfullscreen="" loading="lazy">
-      </iframe>
-    </div>
-    <a href="https://maps.google.com/?q=Hotel+Grand+Sahid+Jaya+Jakarta" target="_blank">
-      <button class="map-btn">Buka di Google Maps</button>
-    </a>
-  </section>
-
-  <!-- AMPLOP DIGITAL (QRIS) -->
-  <section id="qris">
-    <h2 data-aos="fade-up">Amplop Digital</h2>
-    <p data-aos="fade-up">Anda dapat memberikan tanda kasih melalui transfer digital.</p>
-    
-    <div class="envelope" id="envelope"></div>
-    
-    <div id="qris-container" style="display: none;">
-      <div class="qris-box">
-        <img src="images/qris-code.png" alt="QRIS Code" class="qris-image">
-        <div class="qris-label">Scan untuk donasi</div>
+    <div class="container">
+      <h2 data-aos="fade-up">Rangkaian Acara</h2>
+      <div class="event" data-aos="fade-up">
+        <h3>01. Akad Nikah</h3>
+        <p>Sabtu, 31 Agustus 2025<br>Pukul 08.00 – 10.00 WIB<br>Hotel Grand Sahid, Jakarta</p>
+      </div>
+      <div class="event" data-aos="fade-up">
+        <h3>02. Resepsi Siang</h3>
+        <p>Minggu, 1 September 2025<br>Pukul 11.00 – 14.00 WIB<br>Gedung Serba Guna Bina Praja</p>
+      </div>
+      <div class="event" data-aos="fade-up">
+        <h3>03. Resepsi Malam</h3>
+        <p>Minggu, 1 September 2025<br>Pukul 19.00 – 22.00 WIB<br>Gedung Serba Guna Bina Praja</p>
       </div>
     </div>
   </section>
 
-  <!-- CLOSING -->
-  <section id="closing">
-    <h2 data-aos="fade-up">Terima Kasih</h2>
-    <p data-aos="fade-up">Kehadiran dan doa Anda adalah anugerah terbesar dalam perjalanan cinta kami. Semoga cinta kami menjadi sakinah, mawaddah, wa rahmah.</p>
+  <!-- 📍 LOKASI -->
+  <section id="location">
+    <div class="container">
+      <h2 data-aos="fade-up">Lokasi</h2>
+      <div class="map-container" data-aos="zoom-in">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.218212336255!2d106.82513397484025!3d-6.227572993741899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3b7b0b1b1c1%3A0x1b1b1b1b1b1b1b1b!2sHotel%20Grand%20Sahid%20Jaya!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+          allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+      <a href="https://maps.google.com/?q=Hotel+Grand+Sahid+Jaya+Jakarta" target="_blank">
+        <button class="map-btn">Buka di Google Maps</button>
+      </a>
+    </div>
   </section>
 
-  <!-- PETAL ANIMATION CANVAS -->
-  <canvas id="petalCanvas" style="position: fixed; top: 0; left: 0; z-index: -1; pointer-events: none;"></canvas>
+  <!-- 💌 AMPLOP (QRIS) -->
+  <section id="qris">
+    <div class="container">
+      <h2 data-aos="fade-up">Amplop Digital</h2>
+      <p data-aos="fade-up">Anda dapat memberikan tanda kasih melalui transfer digital.</p>
+
+      <div class="envelope" id="envelope"></div>
+
+      <div id="qris-container" style="display: none;">
+        <div class="qris-box">
+          <img src="images/qris-code.png" alt="QRIS Code" class="qris-image">
+          <div class="qris-label">Scan untuk donasi</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✉️ RSVP -->
+  <section id="rsvp">
+    <div class="container">
+      <h2 data-aos="fade-up">Konfirmasi Kehadiran</h2>
+      <p data-aos="fade-up">Kami dengan senang hati menerima konfirmasi kehadiran Anda.</p>
+      <form id="rsvp-form" data-aos="fade-up">
+        <input type="text" placeholder="Nama Lengkap" required>
+        <select required>
+          <option value="" disabled selected>Jumlah Tamu</option>
+          <option value="1">1 Orang</option>
+          <option value="2">2 Orang</option>
+          <option value="3">3 Orang</option>
+        </select>
+        <textarea placeholder="Pesan & Doa"></textarea>
+        <button type="submit">Kirim ke WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 🌹 PENUTUP -->
+  <section id="closing">
+    <div class="container">
+      <h2 data-aos="fade-up">Terima Kasih</h2>
+      <p data-aos="fade-up">Kehadiran dan doa Anda adalah anugerah terbesar dalam perjalanan cinta kami. Semoga cinta kami menjadi sakinah, mawaddah, wa rahmah.</p>
+    </div>
+  </section>
+
+  <!-- 🖼️ MODAL ZOOM -->
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="img01">
+  </div>
+
+  <!-- 📱 FOOTER SOCIAL MEDIA -->
+  <footer class="footer">
+    <div class="container">
+      <div class="social-icons">
+        <a href="https://instagram.com/ichas_diva" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/6288801211544" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:ichas.diva@example.com"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p>© 2025 Ichas & Diva. Made with ❤️ by <a href="https://twitter.com/NathArchak">@NathArchak</a></p>
+    </div>
+  </footer>
 
   <!-- SCRIPTS -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script src="js/index.js"></script>
-  <script src="js/animate-petals.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
